@@ -83,6 +83,7 @@ print("""
 choice1 = input("Make a selection. Simply type the letter.")
 incorrectInput = False
 gameOver = False
+uniqueEnd1 = False
 
 endLoseMessage = "Losser!~ You have failed. Try again next time."
 endWinMessage = "Winner, wow you really got past my BS. Good job, if you did it your first attempt that is."
@@ -93,6 +94,7 @@ while(gameOver != True):
     while(incorrectInput != True):
         if(choice1 == "A"):
             print("Its salty but unsettling. Apparently you don't have a strong enough stomach to drink urine and begin to vomit and vision begins to fade.")
+            uniqueEnd1 = True#Triggers the, wow that was fast ending.#
             gameOver == True
         elif(choice1 == "B"):
             print("""You sit in the dirt for about an hour. Sun beating down on you body. 
