@@ -62,8 +62,66 @@ print("""
 .:=++:        ...*#*******############*******#######%%##%%%###%+.            ...                 ...
             .....*#*****############################%%%%%%##%%%=....       ....                .....
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@%%@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@#*++*#*+******+*#+**+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###%##########%%%%#######*#*##**##@@@
-@@@@%@%@%@%%%@@%%%@%@%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%@@@@@%@@@@@@@%@@%@@@%@@@@
+                _     _   _                     __                    
+                ' )   /   //                    /  )         /         
+                / / /_  // _. __ ______  _    /   __ , , , /____ __  ,
+                (_(_/</_</_(__(_)/ / / <_</_  (__/(_)(_(_/_/_)(_)/ (_/_
+                                                                    /  
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 """)
+print("""
+      You are a lone cowboy walking through the desert. Its been 2 days since you have last seen another person. 
+      Dehydrated... thirsty... instinctually you know without water soon you may well die.
+      Making a last ditch effort to quench your thirst you decide to..
+      
+      A. Drink your own urine. 
+      B. Dig through the hardened sand for water. 
+      C. Drink the fluids of a nearby mysterious cactus.
+      D. Ignore instinct and keep on traveling, maybe water is around the corner?
+      
+      """)
+choice1 = input("Make a selection. Simply type the letter.")
+incorrectInput = False
+gameOver = False
+
+endLoseMessage = "Losser!~ You have failed. Try again next time."
+endWinMessage = "Winner, wow you really got past my BS. Good job, if you did it your first attempt that is."
+
+gameStatus = endLoseMessage
+
+while(gameOver != True):
+    while(incorrectInput != True):
+        if(choice1 == "A"):
+            print("Its salty but unsettling. Apparently you don't have a strong enough stomach to drink urine and begin to vomit and vision begins to fade.")
+            gameOver == True
+        elif(choice1 == "B"):
+            print("""You sit in the dirt for about an hour. Sun beating down on you body. 
+                  Your about a 12 inches into the soil when you ponder if you should continue and if this is really worth the effort. 
+                  Do you continue? Type A for yes, B for no.
+                  
+                  A. Yes
+                  B. No I think I have waisted enough time.""")
+            gameOver == True
+        elif(choice1 == "C"):
+            print("""You find yourself staring down at a nearby cactus, you take your pocket knife and begun to remove the needles and tear into the cacti flesh. Finding what resembles murky water like substance you eagerly drink without second thought. 
+                  As you drink you begin to think about why your in the desert in the first place.. 
+                  how is it you found your self in a silly situation where you are needing to choose to drink from mysterious foliage deciding between life and death. 
+                  Then you think harder, huh.. I can't really even remember what I was doing before walking through this desert, or really even for that matter who I am or where I came from. 
+                  Its as if I had recently been born and my sole existance in life is to experience suffering for some random fool on the internet who desires to relieve his own boredom with some poorly thought out indie made... wait what's the internet? 
+                  At this point you begin to realize either your A you life is a lie, or B your just tripping balls halucinating from the cactus you have already forgotten you drank. After coming to your senses you realize you are naked wearing nothing but an under shirt and tidy whities and have almost completely unearthed the cactus. 
+                  The ground below it begins to tremble as you pluck a remaining root caving in, and you find yourself falling into a cavernous void. Moments later you awake in the tunnel thinking 'damn, good thing I didn't choose to dig!'.""")
+            input()
+        elif(choice1 == "D"):
+            print("""You walk around the corner and find another lone soul. 
+                  He appears to be in the same situation as you but perhaps a bit worse off. 
+                  Unfortunatley both of your minds are in the same state... 'i need to survive' 
+                  Without second though you decide to...
+                  
+                  A. Kill the traveler and search his supplies.
+                  B. Kill the traveler and canabalize his body, drinking his blood.
+                  C. Ask for directions, walking past the traveler exposing your back like a fool..
+                  D. Slowly begin to walk backwards back the way you came from like a penguin in reverse.""")
+        else:
+            print("That wasnt a valid option, type a letter you fool.")
+
+print(gameStatus)
