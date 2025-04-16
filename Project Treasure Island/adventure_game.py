@@ -69,61 +69,122 @@ print("""
                                                                     /  
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 """)
-print("""
-      You are a lone cowboy walking through the desert. Its been 2 days since you have last seen another person. 
-      Dehydrated... thirsty... instinctually you know without water soon you may well die.
-      Making a last ditch effort to quench your thirst you decide to..
-      
-      A. Drink your own urine. 
-      B. Dig through the hardened sand for water. 
-      C. Drink the fluids of a nearby mysterious cactus.
-      D. Ignore instinct and keep on traveling, maybe water is around the corner?
-      
-      """)
-choice1 = input("Make a selection. Simply type the letter.")
+choice = input("You wake up in the desert. Throat dry. Sun blazing. You find a small satchel with a few items and a note that reads: 'Only one path leads home. Choose wisely.'\n\nMake a selection:\nA. Drink the urine you have been saving in a bottle.\nB. Sit and dig in the dirt.\nC. Eat a cactus.\nD. Walk toward a silhouette in the distance.\n> ").strip().upper()
+
 incorrectInput = False
 gameOver = False
-uniqueEnd1 = False
+uniqueEnd = 0
 
-endLoseMessage = "Losser!~ You have failed. Try again next time."
-endWinMessage = "Winner, wow you really got past my BS. Good job, if you did it your first attempt that is."
+endLoseMessage = "Loser! You have failed. Try again next time."
+endWinMessage = "Winner, wow you really got past my BS. Good job, if you did it on your first attempt, that is."
 
 gameStatus = endLoseMessage
 
-while(gameOver != True):
-    while(incorrectInput != True):
-        if(choice1 == "A"):
-            print("Its salty but unsettling. Apparently you don't have a strong enough stomach to drink urine and begin to vomit and vision begins to fade.")
-            uniqueEnd1 = True#Triggers the, wow that was fast ending.#
-            gameOver == True
-        elif(choice1 == "B"):
-            print("""You sit in the dirt for about an hour. Sun beating down on you body. 
-                  Your about a 12 inches into the soil when you ponder if you should continue and if this is really worth the effort. 
-                  Do you continue? Type A for yes, B for no.
-                  
-                  A. Yes
-                  B. No I think I have waisted enough time.""")
-            gameOver == True
-        elif(choice1 == "C"):
-            print("""You find yourself staring down at a nearby cactus, you take your pocket knife and begun to remove the needles and tear into the cacti flesh. Finding what resembles murky water like substance you eagerly drink without second thought. 
-                  As you drink you begin to think about why your in the desert in the first place.. 
-                  how is it you found your self in a silly situation where you are needing to choose to drink from mysterious foliage deciding between life and death. 
-                  Then you think harder, huh.. I can't really even remember what I was doing before walking through this desert, or really even for that matter who I am or where I came from. 
-                  Its as if I had recently been born and my sole existance in life is to experience suffering for some random fool on the internet who desires to relieve his own boredom with some poorly thought out indie made... wait what's the internet? 
-                  At this point you begin to realize either your A you life is a lie, or B your just tripping balls halucinating from the cactus you have already forgotten you drank. After coming to your senses you realize you are naked wearing nothing but an under shirt and tidy whities and have almost completely unearthed the cactus. 
-                  The ground below it begins to tremble as you pluck a remaining root caving in, and you find yourself falling into a cavernous void. Moments later you awake in the tunnel thinking 'damn, good thing I didn't choose to dig!'.""")
-            input()
-        elif(choice1 == "D"):
-            print("""You walk around the corner and find another lone soul. 
-                  He appears to be in the same situation as you but perhaps a bit worse off. 
-                  Unfortunatley both of your minds are in the same state... 'i need to survive' 
-                  Without second though you decide to...
-                  
-                  A. Kill the traveler and search his supplies.
-                  B. Kill the traveler and canabalize his body, drinking his blood.
-                  C. Ask for directions, walking past the traveler exposing your back like a fool..
-                  D. Slowly begin to walk backwards back the way you came from like a penguin in reverse.""")
-        else:
-            print("That wasnt a valid option, type a letter you fool.")
+while not gameOver:
+    if choice == "A":
+        print("\nIt's salty, unsettling... oh no, it's definitely urine. You vomit, dizzy, vision fades.")
+        uniqueEnd = 1
+        gameOver = True
 
-print(gameStatus)
+    elif choice == "B":
+        print("\nYou sit and dig... inch by inch. Sun scorches your back.")
+        choice = input("\nDo you keep digging?\nA. Yes\nB. No, this is madness.\n> ").strip().upper()
+
+        if choice == "A":
+            print("\nFingers bloody, sanity fading. Hours pass. You collapse in the hole you made.")
+            uniqueEnd = 2
+            gameOver = True
+        elif choice == "B":
+            print("\nYou sit back and sigh. What now?")
+            choice = input("\nYou hear a buzzing sound nearby. Investigate?\nA. Yes\nB. No, sounds dangerous.\n> ").strip().upper()
+
+            if choice == "A":
+                print("\nYou follow the sound to find an old radio half-buried in the sand. It crackles to life.")
+                choice = input("\nUse the radio?\nA. Try to call for help\nB. Smash it in paranoia\n> ").strip().upper()
+
+                if choice == "A":
+                    print("\nYou call for help. A voice responds: 'Help only comes to those who help themselves.' The radio sparks and dies.")
+                    choice = input("\nFrustrated, you look up and see a hatch nearby. Try to open it?\nA. Yes\nB. No\n> ").strip().upper()
+
+                    if choice == "A":
+                        print("\nIt creaks open. A ladder descends into darkness. You climb down.")
+                        print("\nYou awaken... in your bed. Was it all a dream? You win.")
+                        gameStatus = endWinMessage
+                        uniqueEnd = 99
+                        gameOver = True
+                    else:
+                        print("\nYou walk away, the hatch disappears behind you. You wander endlessly.")
+                        uniqueEnd = 3
+                        gameOver = True
+                else:
+                    print("\nYou smash your only lifeline. The buzzing is replaced by silence. You die slowly.")
+                    uniqueEnd = 4
+                    gameOver = True
+            else:
+                print("\nYou ignore the buzzing. Days pass. No rescue. No salvation.")
+                uniqueEnd = 5
+                gameOver = True
+
+    elif choice == "C":
+        print("\nYou cut open a cactus and drink its contents. It’s bitter... too bitter.")
+        print("\nYou hallucinate wildly. You forget where, who, even what you are.")
+        print("As reality bends, a hole opens beneath you. You fall into darkness.")
+        uniqueEnd = 6
+        gameOver = True
+
+    elif choice == "D":
+        print("\nYou approach a figure. He looks rough. You both eye each other, unsure of intent.")
+        choice = input("\nChoose your action:\nA. Attack him.\nB. Talk.\nC. Slowly back away.\n> ").strip().upper()
+
+        if choice == "A":
+            print("\nYou attack wildly. He was stronger. You lose.")
+            uniqueEnd = 7
+            gameOver = True
+        elif choice == "B":
+            print("\nHe smiles. ‘Nice to see someone civilized,’ he says.\nHe gives you a map and disappears.")
+            choice = input("\nFollow the map?\nA. Yes\nB. No, it could be a trap.\n> ").strip().upper()
+
+            if choice == "A":
+                print("\nYou follow it... into quicksand. Oops.")
+                uniqueEnd = 8
+                gameOver = True
+            else:
+                print("\nYou toss the map. You end up walking in circles. A vulture circles above.")
+                uniqueEnd = 9
+                gameOver = True
+        else:
+            print("\nYou back away awkwardly. He watches, disappointed.")
+            print("Eventually, dehydration gets you.")
+            uniqueEnd = 10
+            gameOver = True
+    else:
+        print("\nThat wasn't a valid option. Type a letter you fool.")
+        choice = input("Try again. A, B, C, or D?\n> ").strip().upper()
+
+print("\n" + gameStatus)
+
+match uniqueEnd:
+    case 1:
+        print("Wow that was quick. Didn't expect you to go with that right off the bat. Drinking pee? Gross.")
+    case 2:
+        print("You really dug yourself into a hole, huh. *drum roll*")
+    case 3:
+        print("You ignored the way out. So close, yet so far.")
+    case 4:
+        print("Trust issues, huh? Sometimes the answer is a call away.")
+    case 5:
+        print("Paranoia doesn't always keep you alive.")
+    case 6:
+        print("Cactus trip, anyone? You turned into a philosopher of the void.")
+    case 7:
+        print("Violence isn't always the answer... especially when you're weak.")
+    case 8:
+        print("Map led you right into a trap. Classic.")
+    case 9:
+        print("You tried to be clever and ended up lost. Irony.")
+    case 10:
+        print("Should’ve committed to *something*, my dude.")
+    case 99:
+        print("You actually won! The obscure path was yours to claim. Respect.")
+    case _:
+        print("What a basic ending. Kinda lame if you ask me.")
