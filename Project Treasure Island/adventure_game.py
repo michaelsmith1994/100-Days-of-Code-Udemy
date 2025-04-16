@@ -1,3 +1,17 @@
+"""
+This is a beginner-friendly text-based decision-making game that demonstrates core Python logic and input handling.
+It was designed to reinforce the use of nested conditionals and user input via the command line.
+
+    Concepts used here include:
+        1. If/elif/else conditionals (with multiple layers of nesting)
+        2. String input manipulation
+        3. Boolean flags for game control
+
+    Future additions to consider:
+        1. Implementing a thirst level system, and dialogue options to increase and decrease thirst.
+        2. Adding randomized events for more dynamic gameplay.
+        3. If 1. is implemented further guide the game towards finding large source of fresh water.
+"""
 print("""
   ....                .....:-==+====*##*+. ....                 ....       .....    .....            
 ...                 ....=%%%%%###***###*=...                 ....                .....     ...      
