@@ -32,38 +32,71 @@ ascii_art = {
 
 selection = int(input("\nHow many rounds do you want to play? Enter a number: "))
 print()
-player_1_plays = [random.randint(0, 2) for _ in range(selection)]
-player_2_plays = [random.randint(0, 2) for _ in range(selection)]
+player_1_plays = [None] * selection
+computer_plays = [random.randint(0, 2) for _ in range(selection)]
 score = [0, 0]
+
+def userGameChoice(input, i):
+    match(input.lower()):
+        case("rock"):
+            player_1_plays[i] = 0
+            return("Player picks rock!")
+        case("1"):
+            player_1_plays[i] = 0
+            return("Player picks rock!")
+        case("paper"):
+            player_1_plays[i] = 1
+            return("Player picks paper!")
+        case("2"):
+            player_1_plays[i] = 1
+            return("Player picks paper!")
+        case("scissors"): 
+            player_1_plays[i] = 2
+            return("Player picks scissors!")
+        case("3"):
+            player_1_plays[i] = 2
+            return("Player picks scissors!")
+        case _:
+            return("Invalid input.... Type the choice or type the number of the choice.")
 
 
 for i in range(selection):
     print(f"******* Round {i+1} *******")
+
+    while (True):
+        choose = str(input("What will you play? 1. Rock, 2. Paper, or 3. Scissors? "))
+        answer = userGameChoice(choose, i)
+        print(answer+"\n")
+        if(answer.startswith("Invalid")):
+            continue
+        else:
+            break
+
     print(f"Player 1: {plays[player_1_plays[i]]} \n{ascii_art[(plays[player_1_plays[i]].lower())]}")
-    print(f"Player 2: {plays[player_2_plays[i]]} \n{ascii_art[(plays[player_2_plays[i]].lower())]}")
+    print(f"Computer: {plays[computer_plays[i]]} \n{ascii_art[(plays[computer_plays[i]].lower())]}")
     if (player_1_plays[i] == 0):
-        if(player_2_plays[i] == 1):
-            print("Player 2 wins, +1 Point")
+        if(computer_plays[i] == 1):
+            print("Computer wins, +1 Point")
             score[1] += 1
-        elif(player_2_plays[i] == 0):
+        elif(computer_plays[i] == 0):
             print("Tie - No Points")
         else:
             print("Player 1 win +1 Point")
             score[0] += 1
     if (player_1_plays[i] == 1):
-        if(player_2_plays[i] == 2):
-            print("Player 2 wins, +1 Point")
+        if(computer_plays[i] == 2):
+            print("Computer wins, +1 Point")
             score[1] += 1
-        elif(player_2_plays[i] == 1):
+        elif(computer_plays[i] == 1):
             print("Tie - No Points")
         else:
             print("Player 1 win +1 Point")
             score[0] += 1
     if (player_1_plays[i] == 2):
-        if(player_2_plays[i] == 0):
-            print("Player 2 wins, +1 Point")
+        if(computer_plays[i] == 0):
+            print("Computer wins, +1 Point")
             score[1] += 1
-        elif(player_2_plays[i] == 2):
+        elif(computer_plays[i] == 2):
             print("Tie - No Points")
         else:
             print("Player 1 win +1 Point")
@@ -71,7 +104,7 @@ for i in range(selection):
             
     if(i <= selection-2):
         input("Press enter/return to continue....")
-print(f"\n******Final score******\nPlayer 1: {score[0]} \nPlayer 2: {score[1]}")
+print(f"\n******Final score******\nPlayer 1: {score[0]} \nComputer: {score[1]}")
 
 match(score):
     # This little number is called pattern matching with an if-guard. This is something newer (2021) in python im learning.
@@ -80,4 +113,5 @@ match(score):
     case [x,y] if (x == y):
         print("Tie!")
     case [x,y] if (x < y):
-        print("Player 2 wins!")
+        print("Computer wins!")
+
