@@ -1,4 +1,7 @@
+
 from random_words import RandomWords
+from hangman_art import HANGMANPICS, logo
+
 rw = RandomWords()
 word = rw.random_word()
 
@@ -6,59 +9,6 @@ blank_key = len(word)*' _ '
 word_arr = [characters for characters in word]
 guesses = []
 fill_in_blank = blank_key.split()
-
-#Hang man ascii art thanks go to chrishorton: "https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c"
-HANGMANPICS = ['''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========''']
-
 attempts = 6
 
 def print_hanging():
@@ -76,7 +26,7 @@ def check_for_letter(c):
         print("You found a letter!")
         return(True)
     else:
-        print("Missed letter!")
+        print("Not a letter!")
         print("Attempts remaining: " + str(attempts))
         
         print_hanging()
@@ -92,7 +42,8 @@ def add_letter_to_blank(c):
             if char == c:
                 fill_in_blank[i] = c
 
-#Game start
+#*******Game start*********
+print(logo)
 while(attempts >= 0):
     print_fill_in_blank()
     states = False
@@ -117,9 +68,6 @@ while(attempts >= 0):
             continue
 
     else:
-        ##Here we should add a dict of ascii art and reference 7 ascii figures indexed 0-6
-        ##Math ~ ~ dictionary[6-attempts]
-    
         attempts -= 1
         
 
