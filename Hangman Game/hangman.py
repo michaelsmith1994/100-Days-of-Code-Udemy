@@ -16,7 +16,7 @@ def print_hanging():
 
 def print_fill_in_blank():
     printable = ""
-    if(attempts != 0):
+    if(attempts >= 0):
         for characters in fill_in_blank:
             printable += str(characters + ' ')
         print(printable)
